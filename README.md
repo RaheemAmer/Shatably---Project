@@ -7,10 +7,10 @@ Shatably is a promising startup that aims to solve one of the main problems we f
 -------------------------------------------------------
 **GOALS:**
 -------------------------------------------------------
-Create an engaging marketplace similar to freelance sites.
-Verified customers and companies.
-Setting some boundaries and limitations such as Quality Insurance, etc.
-Comfortable and attractive Ui&UX for the users. 
+1- Create an engaging marketplace similar to freelance sites.
+2- Verified customers and companies.
+3- Setting some boundaries and limitations such as Quality Insurance, etc.
+4- Comfortable and attractive Ui&UX for the users. 
 -------------------------------------------------------
 SPECIFICATIONS:
 -------------------------------------------------------
