@@ -1,5 +1,4 @@
-# Shatably - Project
-ITI  Intensive Code Camp -  Graduation Project <br>
+# Shatably - Project ( ITI  Intensive Code Camp -  Graduation Project) <br>
 ------------------------------------------------------- 
 
 Who are we ?
