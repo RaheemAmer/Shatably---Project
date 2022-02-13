@@ -3,14 +3,19 @@
   justify-content: space-between;
   align-items: center;
   top: 20;
-  background-color: #a1b57d;
+  background-color: #e7e7e7;
   width: 100%;
   z-index: 100;
   padding: 10px;
   margin: 20px, 30px;
   color: black;
 }
-
+.header__logo {
+  object-fit: contain;
+  height:50px;
+  border: 1px solid black;
+  margin-left: 30px;
+}
 .header__left,
 .header__right {
   display: flex;

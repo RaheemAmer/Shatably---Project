@@ -12,11 +12,11 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <SlideShow />
-      <div className=''>
-        <Features />
-        <hr />
-        <Content />
-      </div>
+
+      <Features />
+      <hr />
+      <Content />
+
 
       {/*
     <Switch>
