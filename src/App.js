@@ -1,32 +1,20 @@
-import './App.css';
-import React from "react";
-import NavBar from './components/navbar/navbar';
-import SlideShow from './components/slideshow/slideshow'
-import Features from './components/Feature/Feature';
-import Content from './components/Content/Content';
-import Footer from './components/Footer/Footer';
-import Testimonial from "./components/Testmonials/testimonials";
-import { BrowserRouter } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import React, { Fragment } from "react";
+import NavBar from "./components/navbar/navbar";
+import MainPage from './components/mainPage/mainpage'
+import Login from './components/login/login';
+import FormComponent from './components/Register/register';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-
     <BrowserRouter>
-
       <NavBar />
-      <SlideShow />
-
-      <Features />
-      <hr />
-
-      <Content />
-      <hr />
-      <Testimonial />
-      <Footer />
-
-      {/* <Routes>
-      </Routes> */}
+      <Routes>
+        <Route path={"/"} exact element={<MainPage />}></Route>
+        <Route path={"/login"} exact element={<Login />}></Route>
+        <Route path={"/signup"} exact element={<FormComponent />}></Route>
+      </Routes>
     </BrowserRouter>
   );
 }
