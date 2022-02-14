@@ -1,7 +1,8 @@
 import React from 'react';
 import './navbar.css';
 import { Link } from 'react-router-dom';
-import image from '../../images/By_Wix.jpg';
+import image from '../../images/logo-x.jpg';
+
 // import { IoIosHome } from "react-icons/io";
 
 export default function NavBar() {
