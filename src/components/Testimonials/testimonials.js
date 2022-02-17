@@ -18,14 +18,14 @@ export default class Testimonials extends Component {
                 interval={6100}
             >
                 <div>
-                    <img src={img1} alt="img1" />
+                    <img src={img2} alt="img2" />
                     <div className="myCarousel">
-                        <h3>Zakaria ElMohamdy</h3>
-                        <h4>Engineer</h4>
+                        <h3>Sayed Marzouk</h3>
+                        <h4>Doctor</h4>
                         <p>
                             It's freeing to be able to catch up on customized news and not be
                             distracted by a social media element on the same site It's freeing to be able to catch up on customized news and not be
-                            distracted by a social media element on the same site
+                            distracted by a social media element on the same siteocial media element on the same site
                         </p>
                     </div>
                 </div>
@@ -38,7 +38,7 @@ export default class Testimonials extends Component {
                         <p>
                             It's freeing to be able to catch up on customized news and not be
                             distracted by a social media element on the same site It's freeing to be able to catch up on customized news and not be
-                            distracted by a social media element on the same site
+                            distracted by a social media element on the same siteocial media element on the same site
                         </p>
                     </div>
                 </div>
@@ -51,7 +51,19 @@ export default class Testimonials extends Component {
                         <p>
                             It's freeing to be able to catch up on customized news and not be
                             distracted by a social media element on the same site It's freeing to be able to catch up on customized news and not be
-                            distracted by a social media element on the same site
+                            distracted by a social media element on the same siteocial media element on the same site
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <img src={img2} alt="img2" />
+                    <div className="myCarousel">
+                        <h3>Sayed Marzouk</h3>
+                        <h4>Doctor</h4>
+                        <p>
+                            It's freeing to be able to catch up on customized news and not be
+                            distracted by a social media element on the same site It's freeing to be able to catch up on customized news and not be
+                            distracted by a social media element on the same siteocial media element on the same site
                         </p>
                     </div>
                 </div>

@@ -8,12 +8,14 @@
   background: rgb(255, 255, 255) !important;
   color: black;
   height: 100%;
+  padding: 35px;
+  margin-bottom: 40px;
 }
 
 .carousel .slide img {
   width: 120px !important;
   border-radius: 50%;
-  border: #000 1px solid;
+  /* border: #000 1px solid; */
 }
 
 .myCarousel {
@@ -26,7 +28,7 @@
   padding-bottom: 8%;
   padding-left: 5%;
   padding-right: 5%;
-  border: 1px solid rgb(134, 130, 130);
+  /* border: 1px solid rgb(134, 130, 130); */
   height: 310px;
 }
 
@@ -55,28 +57,28 @@
 }
 
 .myCarousel p {
-  font-weight: 100 !important;
-  line-height: 29px !important;
-  color: #222;
+  font-weight: 300 !important;
+  line-height: 25px !important;
+  color: rgb(0, 0, 0);
   font-size: 18px;
   font-family: sans-serif;
   max-height: 67px;
 }
 
 .myCarousel p:before {
-  content: "“";
-  color: #aaa;
-  font-size: 26px;
+  content: "“ ";
+  color: rgb(0, 0, 0);
+  font-size: 35px;
   font-family: monospace;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .myCarousel p:after {
-  content: "”";
-  color: #aaa;
+  content: " ”";
+  color: rgb(0, 0, 0);
   font-size: 26px;
   font-family: monospace;
-  font-weight: 100;
+  font-weight: 300;
   line-height: 0;
 }
 
