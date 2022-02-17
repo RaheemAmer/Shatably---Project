@@ -3,7 +3,7 @@ import SlideShow from "../slideshow/slideshow";
 import Features from "../Feature/Feature";
 import Content from "../Content/Content";
 import Footer from "../Footer/Footer";
-import Testimonial from "../Testmonials/testimonials";
+import Testimonials from "../Testimonials/testimonials";
 
 export default function MainPage() {
     return (
@@ -13,7 +13,10 @@ export default function MainPage() {
             <hr />
             <Content />
             <hr />
-            <Testimonial />
+            <header className="App-header">
+                <h1>Hear From Our Clients </h1>
+                <Testimonials />
+            </header>
             <Footer />
         </ >
 

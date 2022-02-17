@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { Fragment } from "react";
+import React from "react";
 import NavBar from "./components/navbar/navbar";
 import MainPage from './components/mainPage/mainpage'
 import Login from './components/login/login';

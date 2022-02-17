@@ -21,11 +21,11 @@ function Footer() {
                 <div className="footer__top--right">
                     <div className="footer__top--right-one">
                         <h4>Companies</h4>
-                        <p>Categories</p>
-                        <p>Categories</p>
-                        <p>Projects</p>
                         <p>Contests</p>
-                        <p>Freelancers</p>
+                        <p>Categories</p>
+                        <p>Designs</p>
+                        <p>Contests</p>
+                        <p>Companies</p>
 
                     </div>
                     <div className="footer__top--right-two">

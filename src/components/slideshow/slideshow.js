@@ -5,7 +5,7 @@ export default function SlideShow() {
     return (
         <div className="videoBanner">
             <div className="videoBanner__info">
-                <h1>Hire the best Companies for any job you want , online.</h1>
+                <h1>Hire the best Companies for any Design you want , online.</h1>
                 <h4>
                     Millions of people use ( Shatably.com ) to turn their designs into reality.
                 </h4>
