@@ -17,7 +17,7 @@ export default function NavBar() {
                     />
                     {/* <h4><IoIosHome></IoIosHome>Shatably</h4> */}
                 </Link>
-                <h4>How-It-Works</h4>
+                <h4><Link to="/About">How-It-Works</Link></h4>
                 <h4>Browse-Ads</h4>
             </div >
 
@@ -29,42 +29,3 @@ export default function NavBar() {
         </div >
     )
 }
-// import React, { useState } from "react";
-// import Button from "./Button";
-// import menuItems from "./MenuItems";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import "./Navbar.css";
-
-// const Navbar = () => {
-//     const [active, setActive] = useState(false);
-
-//     const handleClick = () => {
-//         setActive(!active);
-//     };
-
-//     return (
-//         <nav className="navbar">
-//             <h1 className="navbar-logo">
-//                 Shatably <FontAwesomeIcon icon="fa-light fa-house-building" />
-//             </h1>
-//             <div className="menu-icon" onClick={handleClick}>
-//                 <i className={active ? "fas fa-times" : "fas fa-bars"}></i>
-//             </div>
-//             <ul className={active ? "nav-menu active" : "nav-menu"}>
-//                 {menuItems.map((item, index) => {
-//                     return (
-//                         <li key={index}>
-//                             <a href={item.url} className={item.cName}>
-//                                 {item.title}
-//                             </a>
-//                         </li>
-//                     );
-//                 })}
-//             </ul>
-//             <Button>Login</Button>
-//             <Button>SIGN UP</Button>
-//         </nav>
-//     );
-// };
-
-// export default Navbar;

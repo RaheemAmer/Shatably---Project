@@ -69,8 +69,8 @@ export default function LoginUser() {
 
     return (
         <>
-            <br></br>
-            <div className="container text-center d-flex flex-column align-items-center border border-2 w-50 shadow">
+            <br/>
+            <div className="container text-center d-flex flex-column align-items-center border border-2 w-25 shadow">
                 <form className="mb-3" onSubmit={(e) => handleSubmitForm(e)}>
                     <h1 className=" text-center">Login</h1>
                     <div className="mb-3">
@@ -127,6 +127,12 @@ export default function LoginUser() {
                     </button>
                 </form >
             </div >
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
         </>
 
 
