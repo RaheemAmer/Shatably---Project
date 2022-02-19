@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import {
     emailValidator,
     passwordValidator,
@@ -22,6 +23,8 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 
 const SignUp = () => {
+    const navigate = useNavigate();
+    console.log(navigate);
     const [formValues, setFormValues] = useState({
         email: "",
         password: "",
@@ -135,6 +138,7 @@ const SignUp = () => {
         ) {
             console.log(formValues);
             console.log("Registered Successfully ");
+            navigate('/');
         }
     };
     const paperStyle = { padding: "30px 20px", width: 300, margin: "20px auto" };
