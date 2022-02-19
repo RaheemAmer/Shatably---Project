@@ -1,310 +1,272 @@
-import React from "react";
-import { Navigate } from "react-router-dom";
-import './register.css'
+import React, { useState } from "react";
+import {
+    emailValidator,
+    passwordValidator,
+    usernameValidator,
+    nameValidator,
+} from "./Register-regex";
 
-const emailValidator = /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-const passwordValidator = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
-const usernameValidator = /^[a-zA-Z0-9][a-zA-Z0-9_]*[a-zA-Z0-9](?<![-?\d+\\.?\d*$]{6,}.*)$/;
+import {
+    Grid,
+    Paper,
+    Avatar,
+    Typography,
+    TextField,
+    Button,
+} from "@material-ui/core";
+import AddCircleOutlineOutlinedIcon from "@material-ui/icons/AddCircleOutlineOutlined";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
 
+const SignUp = () => {
+    const [formValues, setFormValues] = useState({
+        email: "",
+        password: "",
+        username: "",
+        name: "",
+        passConfirmation: ""
+    });
 
-class FormComponent extends React.Component {
-    constructor() {
-        super();
+    const [formValuesErrors, setFormValuesErrors] = useState({
+        emailErr: null,
+        passErr: null,
+        usernameErr: null,
+        nameErr: null,
+        passConfirmationError: null
+    });
 
-        this.state = {
-            firstName: "",
-            lastName: "",
-            userName: "",
-            emailAddress: "",
-            password: "",
-            passwordConfirmation: "",
-            firstNameError: "",
-            userNameError: "",
-            emailAddressError: "",
-            passwordError: "",
-            passwordConfirmationError: "",
-            isFormSubmitted: false,
-            redirect: null
-        };
+    const handleFormChange = (event) => {
+        switch (event.target.name) {
+            case "name":
+                setFormValues({
+                    ...formValues,
+                    name: event.target.value,
+                });
+                setFormValuesErrors({
+                    ...formValuesErrors,
+                    nameErr:
+                        event.target.value.length === 0
+                            ? "This field is required"
+                            : nameValidator.test(event.target.value) === false
+                                ? "name must be in right format to be a real name"
+                                : null,
+                });
+                break;
 
+            case "email":
+                setFormValues({
+                    ...formValues,
+                    email: event.target.value,
+                });
+                setFormValuesErrors({
+                    ...formValuesErrors,
+                    emailErr:
+                        event.target.value.length === 0
+                            ? "This field is required"
+                            : emailValidator.test(event.target.value) === false
+                                ? "Email must be like that (UUUUUWWWW@Example.com)"
+                                : null,
+                });
+                break;
 
-        this.handleChangeCall = this.handleChange.bind(this);
-        // this.handleChange.bind(this);
-        this.handleBlur = this.handleBlur.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.validateFirstName = this.validateFirstName.bind(this);
-        this.validateLastName = this.validateLastName.bind(this);
-        this.validateEmailAddress = this.validateEmailAddress.bind(this);
-        this.validatePassword = this.validatePassword.bind(this);
-        this.validatePasswordConfirmation = this.validatePasswordConfirmation.bind(
-            this
-        );
-        this.validateField = this.validateField.bind(this);
-    }
+            case "password":
+                setFormValues({
+                    ...formValues,
+                    password: event.target.value,
+                });
+                setFormValuesErrors({
+                    ...formValuesErrors,
+                    passErr:
+                        event.target.value.length === 0
+                            ? "This field is required"
+                            : passwordValidator.test(event.target.value) === false
+                                ? "Password must be like that (Pass12345)"
+                                : null,
+                });
+                break;
 
-    handleChange(event) {
-        const { name, value } = event.target;
+            case "passConfirmation":
+                setFormValues({
+                    ...formValues,
+                    passConfirmation: event.target.value,
+                });
+                setFormValuesErrors({
+                    ...formValuesErrors,
+                    passConfirmationError:
+                        event.target.value.length === 0
+                            ? "This field is required"
+                            : (formValues.passConfirmation === formValues.password) === true
+                                ? "Password Confirm doesn't Match"
+                                : null,
+                });
+                break;
 
-        this.setState({
-            [name]: value
-        });
+            case "username":
+                setFormValues({
+                    ...formValues,
+                    username: event.target.value,
+                });
+                setFormValuesErrors({
+                    ...formValuesErrors,
+                    usernameErr:
+                        event.target.value.length === 0
+                            ? "This field is required"
+                            : usernameValidator.test(event.target.value) === false
+                                ? "That is not a right format for the username"
+                                : null,
+                });
+                break;
 
-        return;
-    }
-
-    handleBlur(event) {
-        const { name } = event.target;
-
-        this.validateField(name);
-        return;
-    }
-
-    handleSubmit(event) {
-        event.preventDefault();
-        let formFields = [
-            "firstName",
-            "lastName",
-            "userName",
-            "emailAddress",
-            "password",
-            "passwordConfirmation"
-        ];
-        let isValid = true;
-        formFields.forEach(field => {
-            isValid = this.validateField(field) && isValid;
-        });
-
-        if (isValid) {
-            this.setState({ isFormSubmitted: true });
-            this.setState({ Navigate: "/" })
+            default:
+                break;
         }
-        else this.setState({ isFormSubmitted: false });
-
-        return this.state.isFormSubmitted;
-    }
-
-    validateField(name) {
-        let isValid = false;
-
-        if (name === "firstName") isValid = this.validateFirstName();
-        else if (name === "lastName") isValid = this.validateLastName();
-        else if (name === "emailAddress") isValid = this.validateEmailAddress();
-        else if (name === "userName") isValid = this.validateUserName();
-        else if (name === "password") isValid = this.validatePassword();
-        else if (name === "passwordConfirmation")
-            isValid = this.validatePasswordConfirmation();
-        return isValid;
-    }
-
-    validateFirstName() {
-        let firstNameError = "";
-        const value = this.state.firstName;
-        if (value.trim() === "") {
-            firstNameError = "First Name is required";
+    };
+    const handleSubmitForm = (e) => {
+        e.preventDefault();
+        if (
+            !formValuesErrors.emailErr &&
+            !formValuesErrors.passErr &&
+            !formValuesErrors.usernameErr &&
+            !formValuesErrors.nameErr &&
+            !formValuesErrors.passConfirmationError
+        ) {
+            console.log(formValues);
+            console.log("Registered Successfully ");
         }
-
-        this.setState({
-            firstNameError
-        });
-        return firstNameError === "";
-    }
-
-    validateLastName() {
-        let lastNameError = "";
-        const value = this.state.lastName;
-        if (value.trim() === "") {
-            lastNameError = "Last Name is required";
-        }
-
-        this.setState({
-            lastNameError
-        });
-        return lastNameError === "";
-    }
-
-    validateUserName() {
-        let userNameError = "";
-        const value = this.state.userName;
-        if (value.trim() === "") {
-            userNameError = "User Name is required";
-        }
-        //usernameValidator
-        else if (!usernameValidator.test(value))
-            userNameError = "UserName is not valid and must be in right form";
-        this.setState({
-            userNameError
-        });
-        return userNameError === "";
-    }
-
-    validateEmailAddress() {
-        let emailAddressError = "";
-        const value = this.state.emailAddress;
-        if (value.trim === "")
-            emailAddressError = "Email Address is required";
-        else if (!emailValidator.test(value))
-            emailAddressError = "Email is not valid";
-        this.setState({
-            emailAddressError
-        });
-        return emailAddressError === "";
-    }
-
-    validatePassword() {
-        let passwordError = "";
-        const value = this.state.password;
-        if (value.trim === "")
-            passwordError = "Password is required";
-        else if (!passwordValidator.test(value))
-            passwordError =
-                "Password must contain at least 8 characters, 1 number, 1 upper and 1 lowercase!";
-
-        this.setState({
-            passwordError
-        });
-        return passwordError === "";
-    }
-
-    validatePasswordConfirmation() {
-        let passwordConfirmationError = "";
-        if (this.state.password !== this.state.passwordConfirmation)
-            passwordConfirmationError = "Password does not match Confirmation";
-
-        this.setState({
-            passwordConfirmationError
-        });
-        return passwordConfirmationError === "";
-    }
-
-    render() {
-        if (this.state.redirect) {
-            return <Navigate to={this.state.redirect} />
-        }
-        return (
-            <>
-                <div className="container shadow d-flex flex-column align-items-center w-50 p-2" >
-                    <h3 className="p-3">SignUp</h3>
-
-                    {this.state.isFormSubmitted ? (
-                        <div className="details">
-                            <h3 className="text-success">Thanks for signing up, This is your details That you entered:</h3>
-                            <div className="container text-center border border-2 h4">
-                                <br />
-                                <div>First Name: {this.state.firstName}</div>
-                                <div>Last Name: {this.state.lastName}</div>
-                                <div>User_Name: {this.state.userName}</div>
-                                <div>Email Address: {this.state.emailAddress}</div>
-                                <br />
+    };
+    const paperStyle = { padding: "30px 20px", width: 300, margin: "20px auto" };
+    const headerStyle = { margin: 0 };
+    const avatarStyle = { backgroundColor: "#1bbd7e" };
+    const marginTop = { marginTop: 5 };
+    return (
+        <div className="SignUp text-center">
+            <Grid>
+                <Paper
+                    elevation={20}
+                    style={paperStyle}
+                >
+                    <Grid align="center">
+                        <Avatar style={avatarStyle}>
+                            <AddCircleOutlineOutlinedIcon />
+                        </Avatar>
+                        <h2 style={headerStyle}>Sign Up</h2>
+                        <Typography variant="caption" gutterBottom>
+                            Please fill this form to create an account !
+                        </Typography>
+                    </Grid>
+                    <form onSubmit={(e) => handleSubmitForm(e)}>
+                        <TextField
+                            value={formValues.name}
+                            onChange={(e) => handleFormChange(e)}
+                            name="name"
+                            fullWidth
+                            label="Name"
+                            placeholder="Enter your name"
+                        />
+                        {formValuesErrors.nameErr && (
+                            <div className="form-text text-danger">
+                                {formValuesErrors.nameErr}
                             </div>
-                        </div>
-                    ) : (
-                        <div className="text-center w-50">
-                            <form onSubmit={this.handleSubmit} >
-                                <input
-                                    className="form-control m-2"
-                                    type="text"
-                                    placeholder="First Name"
-                                    name="firstName"
-                                    value={this.state.firstName}
-                                    onChange={this.handleChangeCall}
-                                    onBlur={this.handleBlur}
-                                    autoComplete="off"
+                        )}
+                        <TextField
+                            value={formValues.email}
+                            onChange={(e) => handleFormChange(e)}
+                            name="email"
+                            fullWidth
+                            label="Email"
+                            placeholder="Enter your email"
+                        />
+                        {formValuesErrors.emailErr && (
+                            <div className="form-text text-danger">
+                                {formValuesErrors.emailErr}
+                            </div>
+                        )}
+                        <TextField
+                            value={formValues.username}
+                            onChange={(e) => handleFormChange(e)}
+                            name="username"
+                            fullWidth
+                            label="Username"
+                            placeholder="Enter your username"
+                        />
+                        {formValuesErrors.usernameErr && (
+                            <div className="form-text text-danger">
+                                {formValuesErrors.usernameErr}
+                            </div>
+                        )}
+                        <br /> <br />
+                        <FormControl component="fieldset" style={marginTop}>
+                            <FormLabel component="legend">Gender</FormLabel>
+                            <RadioGroup
+                                required
+                                aria-label="gender"
+                                name="gender"
+                                style={{ display: "initial" }}
+                            >
+                                <FormControlLabel
+                                    value="female"
+                                    control={<Radio />}
+                                    label="Female"
                                 />
-
-                                {this.state.firstNameError && (
-                                    <div className="errorMsg text-danger">{this.state.firstNameError}</div>
-                                )}
-
-                                <input
-                                    className="form-control m-2"
-
-                                    type="text"
-                                    placeholder="Last Name"
-                                    name="lastName"
-                                    value={this.state.lastName}
-                                    onChange={this.handleChangeCall}
-                                    onBlur={this.handleBlur}
-                                    autoComplete="off"
+                                <FormControlLabel
+                                    value="male"
+                                    control={<Radio />}
+                                    label="Male"
                                 />
+                            </RadioGroup>
+                        </FormControl>
+                        <TextField
+                            fullWidth
+                            label="Password"
+                            placeholder="Enter your password"
+                            value={formValues.password}
+                            onChange={(e) => handleFormChange(e)}
+                            name="password"
+                            type="password"
+                        />
+                        {formValuesErrors.passErr && (
+                            <div className="form-text text-danger">
+                                {formValuesErrors.passErr}
+                            </div>
+                        )}
+                        <TextField
+                            value={formValues.passConfirmation}
+                            onChange={(e) => handleFormChange(e)}
+                            name="passConfirmation"
+                            type="password"
+                            fullWidth
+                            label="Confirm Password"
+                            placeholder="Confirm your password"
+                        />
+                        {formValuesErrors.passConfirmationError && (
+                            <div className="form-text text-danger">
+                                {formValuesErrors.passConfirmationError}
+                            </div>
+                        )}
+                        <br /> <br />
+                        <Button
+                            disabled={
+                                formValuesErrors.emailErr ||
+                                formValuesErrors.passErr ||
+                                formValuesErrors.usernameErr ||
+                                formValuesErrors.nameErr ||
+                                formValuesErrors.passConfirmationError ||
+                                (formValues.email && formValues.name && formValues.password && formValues.passConfirmation && formValues.username) === ""
+                            }
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                        >
+                            Sign up
+                        </Button>
+                    </form>
+                </Paper>
+            </Grid>
+        </div>
+    );
+};
 
-                                {this.state.lastNameError && (
-                                    <div className="errorMsg text-danger">{this.state.lastNameError}</div>
-                                )}
-
-                                <input
-                                    className="form-control m-2"
-                                    type="text"
-                                    placeholder="User Name"
-                                    name="userName"
-                                    value={this.state.userName}
-                                    onChange={this.handleChangeCall}
-                                    onBlur={this.handleBlur}
-                                    autoComplete="off"
-                                />
-
-                                {this.state.userNameError && (
-                                    <div className="errorMsg text-danger">{this.state.userNameError}</div>
-                                )}
-
-                                <input
-                                    className="form-control m-2"
-
-                                    type="email"
-                                    placeholder="Email Address"
-                                    name="emailAddress"
-                                    value={this.state.emailAddress}
-                                    onChange={this.handleChangeCall}
-                                    onBlur={this.handleBlur}
-                                    autoComplete="off"
-                                />
-
-                                {this.state.emailAddressError && (
-                                    <div className="errorMsg text-danger">{this.state.emailAddressError}</div>
-                                )}
-                                <input
-                                    className="form-control m-2"
-
-                                    type="password"
-                                    placeholder="Password"
-                                    name="password"
-                                    value={this.state.password}
-                                    onChange={this.handleChangeCall}
-                                    onBlur={this.handleBlur}
-                                    autoComplete="off"
-                                />
-
-                                {this.state.passwordError && (
-                                    <div className="errorMsg text-danger">{this.state.passwordError}</div>
-                                )}
-
-                                <input
-                                    className="form-control m-2"
-
-                                    type="password"
-                                    placeholder="Confirm Password"
-                                    name="passwordConfirmation"
-                                    value={this.state.passwordConfirmation}
-                                    onChange={this.handleChangeCall}
-                                    onBlur={this.handleBlur}
-                                    autoComplete="off"
-                                />
-
-                                {this.state.passwordConfirmationError && (
-                                    <div className="errorMsg text-danger">
-                                        {this.state.passwordConfirmationError}
-                                    </div>
-                                )}
-                                <button className="btn btn-success bg-success">Signup</button>
-                            </form>
-                        </div>
-                    )
-                    }
-                </div>
-                <br />
-                <br />
-                <br />
-            </>
-        );
-    }
-}
-export default FormComponent;
+export default SignUp;
