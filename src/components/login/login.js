@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { validEmail, validPassword } from "./regex.js";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+
 import {
     Grid,
     Paper,
@@ -15,7 +19,32 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 
+const MySwal = withReactContent(Swal);
 const Login = () => {
+    // For GET requests
+    axios.interceptors.request.use(
+        (req) => {
+            // Add configurations here
+            return req;
+        },
+        (err) => {
+            return Promise.reject(err);
+        }
+    );
+    // For POST requests
+    axios.interceptors.response.use(
+        (res) => {
+            // Add configurations here
+            if (res.status === 201) {
+                console.log('Posted Successfully');
+            }
+            return res;
+        },
+        (err) => {
+            return Promise.reject(err);
+        }
+    );
+
     const navigate = useNavigate();
     console.log(navigate);
     const [formValues, setFormValues] = useState({
@@ -75,6 +104,7 @@ const Login = () => {
                 .then((response) => {
                     console.log(response.data);
                     navigate('/');
+                    MySwal.fire('Logged-IN Successfully')
                 }).catch((err) => {
                     console.log(err)
                 });

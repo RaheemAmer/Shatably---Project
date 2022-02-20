@@ -7,7 +7,8 @@ import {
     usernameValidator,
     nameValidator,
 } from "./Register-regex";
-
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 import {
     Grid,
     Paper,
@@ -22,6 +23,8 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
+
+const MySwal = withReactContent(Swal);
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -144,6 +147,7 @@ const SignUp = () => {
                 .then((response) => {
                     console.log(response.data);
                     navigate('/login');
+                    MySwal.fire(`Signed-Up Successfully , Welcome At Shatably.com`)
                 }).catch((err) => {
                     console.log(err)
                 });
