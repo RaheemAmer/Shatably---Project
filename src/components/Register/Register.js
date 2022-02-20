@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {
     emailValidator,
@@ -28,18 +29,18 @@ const SignUp = () => {
     const [formValues, setFormValues] = useState({
         email: "",
         password: "",
-        username: "",
         name: "",
-        passConfirmation: ""
+        passwordConfirm: ""
     });
 
     const [formValuesErrors, setFormValuesErrors] = useState({
         emailErr: null,
         passErr: null,
-        usernameErr: null,
         nameErr: null,
         passConfirmationError: null
     });
+
+
 
     const handleFormChange = (event) => {
         switch (event.target.name) {
@@ -91,37 +92,37 @@ const SignUp = () => {
                 });
                 break;
 
-            case "passConfirmation":
+            case "passwordConfirm":
                 setFormValues({
                     ...formValues,
-                    passConfirmation: event.target.value,
+                    passwordConfirm: event.target.value,
                 });
                 setFormValuesErrors({
                     ...formValuesErrors,
                     passConfirmationError:
                         event.target.value.length === 0
                             ? "This field is required"
-                            : (formValues.passConfirmation === formValues.password) === true
+                            : (formValues.passwordConfirm === formValues.password) === true
                                 ? "Password Confirm doesn't Match"
                                 : null,
                 });
                 break;
 
-            case "username":
-                setFormValues({
-                    ...formValues,
-                    username: event.target.value,
-                });
-                setFormValuesErrors({
-                    ...formValuesErrors,
-                    usernameErr:
-                        event.target.value.length === 0
-                            ? "This field is required"
-                            : usernameValidator.test(event.target.value) === false
-                                ? "That is not a right format for the username"
-                                : null,
-                });
-                break;
+            // case "username":
+            //     setFormValues({
+            //         ...formValues,
+            //         username: event.target.value,
+            //     });
+            //     setFormValuesErrors({
+            //         ...formValuesErrors,
+            //         usernameErr:
+            //             event.target.value.length === 0
+            //                 ? "This field is required"
+            //                 : usernameValidator.test(event.target.value) === false
+            //                     ? "That is not a right format for the username"
+            //                     : null,
+            //     });
+            //     break;
 
             default:
                 break;
@@ -132,13 +133,20 @@ const SignUp = () => {
         if (
             !formValuesErrors.emailErr &&
             !formValuesErrors.passErr &&
-            !formValuesErrors.usernameErr &&
+            // !formValuesErrors.usernameErr &&
             !formValuesErrors.nameErr &&
             !formValuesErrors.passConfirmationError
         ) {
-            console.log(formValues);
-            console.log("Registered Successfully ");
-            navigate('/');
+            // console.log(formValues);
+            // console.log("Registered Successfully ");
+            axios
+                .post('http://localhost:3000/api/v1/users/signup', formValues)
+                .then((response) => {
+                    console.log(response.data);
+                    navigate('/login');
+                }).catch((err) => {
+                    console.log(err)
+                });
         }
     };
     const paperStyle = { padding: "30px 20px", width: 300, margin: "20px auto" };
@@ -188,7 +196,7 @@ const SignUp = () => {
                                 {formValuesErrors.emailErr}
                             </div>
                         )}
-                        <TextField
+                        {/* <TextField
                             value={formValues.username}
                             onChange={(e) => handleFormChange(e)}
                             name="username"
@@ -200,28 +208,9 @@ const SignUp = () => {
                             <div className="form-text text-danger">
                                 {formValuesErrors.usernameErr}
                             </div>
-                        )}
-                        <br /> <br />
-                        <FormControl component="fieldset" style={marginTop}>
-                            <FormLabel component="legend">Gender</FormLabel>
-                            <RadioGroup
-                                required
-                                aria-label="gender"
-                                name="gender"
-                                style={{ display: "initial" }}
-                            >
-                                <FormControlLabel
-                                    value="female"
-                                    control={<Radio />}
-                                    label="Female"
-                                />
-                                <FormControlLabel
-                                    value="male"
-                                    control={<Radio />}
-                                    label="Male"
-                                />
-                            </RadioGroup>
-                        </FormControl>
+                        )} */}
+
+
                         <TextField
                             fullWidth
                             label="Password"
@@ -237,9 +226,9 @@ const SignUp = () => {
                             </div>
                         )}
                         <TextField
-                            value={formValues.passConfirmation}
+                            value={formValues.passwordConfirm}
                             onChange={(e) => handleFormChange(e)}
-                            name="passConfirmation"
+                            name="passwordConfirm"
                             type="password"
                             fullWidth
                             label="Confirm Password"
@@ -255,14 +244,14 @@ const SignUp = () => {
                             disabled={
                                 formValuesErrors.emailErr ||
                                 formValuesErrors.passErr ||
-                                formValuesErrors.usernameErr ||
                                 formValuesErrors.nameErr ||
                                 formValuesErrors.passConfirmationError ||
-                                (formValues.email && formValues.name && formValues.password && formValues.passConfirmation && formValues.username) === ""
+                                (formValues.email && formValues.name && formValues.password && formValues.passConfirmation) === ""
                             }
                             type="submit"
                             variant="contained"
                             color="primary"
+                        // onClick={SignUP()}
                         >
                             Sign up
                         </Button>

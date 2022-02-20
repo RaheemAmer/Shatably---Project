@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { validEmail, validPassword } from "./regex.js";
 import {
@@ -69,9 +70,14 @@ const Login = () => {
     const handleSubmitForm = (e) => {
         e.preventDefault();
         if (!formValuesErrors.emailErr && !formValuesErrors.passErr) {
-            console.log(formValues);
-            console.log("LoggedIN Successfully ");
-            navigate('/');
+            axios
+                .post('http://localhost:3000/api/v1/users/login', formValues)
+                .then((response) => {
+                    console.log(response.data);
+                    navigate('/');
+                }).catch((err) => {
+                    console.log(err)
+                });
         }
     };
 
