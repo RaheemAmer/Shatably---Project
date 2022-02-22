@@ -6,6 +6,12 @@ import image from '../../images/logo-x.jpg';
 // import { IoIosHome } from "react-icons/io";
 
 export default function NavBar() {
+    function CheckStorage() {
+        const saved = localStorage.getItem("token");
+        if (saved === '') {
+            console.log('empty')
+        }
+    }
     return (
         <div className="header ">
             <div className="header__left">
@@ -22,9 +28,10 @@ export default function NavBar() {
             </div >
 
             <div className="header__right">
-                <h4><Link to="/login">Log-In</Link></h4>
-                <h4><Link to="/signup">Sign-Up </Link></h4>
-                <button> Post an AD</button>
+                {/* <h4><Link to="/login">Log-In</Link></h4>
+                <h4><Link to="/signup">Sign-Up </Link></h4> */}
+                <button hidden={CheckStorage()}> <Link to="/login">Log-In </Link></button>
+                <button hidden={CheckStorage()}> <Link to="/signup">Sign-Up </Link></button>
             </div>
         </div >
     )

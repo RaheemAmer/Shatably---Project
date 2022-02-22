@@ -102,11 +102,14 @@ const Login = () => {
             axios
                 .post('http://localhost:3000/api/v1/users/login', formValues)
                 .then((response) => {
-                    console.log(response.data);
+                    // console.log(response.data);
                     navigate('/');
-                    MySwal.fire('Logged-IN Successfully')
+                    localStorage.setItem("token", response.data.token);
+                    // console.log(response.data.user);
+                    // ${response.data.status}
+                    MySwal.fire(`Logged-IN Successfully,Welcome `);
                 }).catch((err) => {
-                    console.log(err)
+                    console.log(err);
                 });
         }
     };
@@ -176,7 +179,7 @@ const Login = () => {
                             disabled={
                                 formValuesErrors.emailErr ||
                                 formValuesErrors.passErr ||
-                                (formValues.email && formValues.password) == ""
+                                (formValues.email && formValues.password) === ""
                             }
                         >
                             Sign in

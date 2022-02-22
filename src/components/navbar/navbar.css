@@ -51,7 +51,7 @@
 }
 
 .header__right > button {
-  background-color: #b33030;
+  background-color: #9b875f;
   border: solid 1px black;
   color: white;
   padding: 8px 18px;
@@ -62,14 +62,20 @@
   /* font-weight: bolder; */
   margin-right: 25px;
 }
+.header__right > button > a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
 .header__right > button:hover {
   background-color: #ffffff;
   color: black;
 }
-.header__right :hover {
+
+/* .header__right :hover {
   background-color: black;
   color: white;
-}
+} */
+
 .logo_name {
   text-decoration: none;
   font-size: 30px;

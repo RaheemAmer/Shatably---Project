@@ -18,11 +18,11 @@ import {
     Button,
 } from "@material-ui/core";
 import AddCircleOutlineOutlinedIcon from "@material-ui/icons/AddCircleOutlineOutlined";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
+// import Radio from "@material-ui/core/Radio";
+// import RadioGroup from "@material-ui/core/RadioGroup";
+// import FormControlLabel from "@material-ui/core/FormControlLabel";
+// import FormControl from "@material-ui/core/FormControl";
+// import FormLabel from "@material-ui/core/FormLabel";
 
 const MySwal = withReactContent(Swal);
 
@@ -146,8 +146,11 @@ const SignUp = () => {
                 .post('http://localhost:3000/api/v1/users/signup', formValues)
                 .then((response) => {
                     console.log(response.data);
+                    // localStorage.setItem("token", response.data.token);
                     navigate('/login');
-                    MySwal.fire(`Signed-Up Successfully , Welcome At Shatably.com`)
+                    // console.log(response.data.user);
+                    // ${response.data.status}
+                    MySwal.fire(`Signed-Up Successfully , Welcome At Shatably.com`);
                 }).catch((err) => {
                     console.log(err)
                 });
