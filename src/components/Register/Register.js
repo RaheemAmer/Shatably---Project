@@ -146,10 +146,7 @@ const SignUp = () => {
                 .post('http://localhost:3000/api/v1/users/signup', formValues)
                 .then((response) => {
                     console.log(response.data);
-                    // localStorage.setItem("token", response.data.token);
                     navigate('/login');
-                    // console.log(response.data.user);
-                    // ${response.data.status}
                     MySwal.fire(`Signed-Up Successfully , Welcome At Shatably.com`);
                 }).catch((err) => {
                     console.log(err)

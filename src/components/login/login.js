@@ -21,32 +21,32 @@ import Checkbox from "@material-ui/core/Checkbox";
 
 const MySwal = withReactContent(Swal);
 const Login = () => {
-    // For GET requests
-    axios.interceptors.request.use(
-        (req) => {
-            // Add configurations here
-            return req;
-        },
-        (err) => {
-            return Promise.reject(err);
-        }
-    );
-    // For POST requests
-    axios.interceptors.response.use(
-        (res) => {
-            // Add configurations here
-            if (res.status === 201) {
-                console.log('Posted Successfully');
-            }
-            return res;
-        },
-        (err) => {
-            return Promise.reject(err);
-        }
-    );
+    // // For GET requests
+    // axios.interceptors.request.use(
+    //     (req) => {
+    //         // Add configurations here
+    //         return req;
+    //     },
+    //     (err) => {
+    //         return Promise.reject(err);
+    //     }
+    // );
+    // // For POST requests
+    // axios.interceptors.response.use(
+    //     (res) => {
+    //         // Add configurations here
+    //         if (res.status === 201) {
+    //             console.log('Posted Successfully');
+    //         }
+    //         return res;
+    //     },
+    //     (err) => {
+    //         return Promise.reject(err);
+    //     }
+    // );
 
     const navigate = useNavigate();
-    console.log(navigate);
+    // console.log(navigate);
     const [formValues, setFormValues] = useState({
         email: "",
         password: "",
@@ -102,11 +102,11 @@ const Login = () => {
             axios
                 .post('http://localhost:3000/api/v1/users/login', formValues)
                 .then((response) => {
-                    // console.log(response.data);
+                    console.log(response.data);
                     navigate('/');
+                    console.log(response.data.data.user.name);
+                    MySwal.fire(`Logged-IN Successfully,Welcome ${response.data.data.user.name}`);
                     localStorage.setItem("token", response.data.token);
-                    // console.log(response.data.user);
-                    // ${response.data.status}
                     MySwal.fire(`Logged-IN Successfully,Welcome `);
                 }).catch((err) => {
                     console.log(err);
