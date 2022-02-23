@@ -104,10 +104,9 @@ const Login = () => {
                 .then((response) => {
                     console.log(response.data);
                     navigate('/');
-                    console.log(response.data.data.user.name);
+                    // console.log(response.data.data.user.name);
                     MySwal.fire(`Logged-IN Successfully,Welcome ${response.data.data.user.name}`);
                     localStorage.setItem("token", response.data.token);
-                    MySwal.fire(`Logged-IN Successfully,Welcome `);
                 }).catch((err) => {
                     console.log(err);
                 });
