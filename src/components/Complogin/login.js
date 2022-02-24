@@ -104,7 +104,7 @@ const Login = () => {
                     console.log(response.data);
                     navigate('/');
                     // console.log(response.data.data.user.name);
-                    MySwal.fire(`Logged-IN Successfully,{Welcome ${response.data.data.contactor.name}} ,At Shatably.com`);
+                    MySwal.fire(`Logged-IN Successfully,Welcome ${response.data.data.contactor.name} , At Shatably.com`);
                     localStorage.setItem("company_token", response.data.token);
                 }).catch((err) => {
                     console.log(err);

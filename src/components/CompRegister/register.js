@@ -146,7 +146,7 @@ const SignUp = () => {
                 .then((response) => {
                     console.log(response.data);
                     navigate('/');
-                    MySwal.fire(`Signed-Up Successfully , {Welcome ${response.data.data.contactor.name}} ,At Shatably.com`);
+                    MySwal.fire(`Signed-Up Successfully , Welcome ${response.data.data.contactor.name} , At Shatably.com`);
                     localStorage.setItem("company_token", response.data.token);
                 }).catch((err) => {
                     console.log(err)
