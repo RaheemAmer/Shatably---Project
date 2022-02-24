@@ -6,6 +6,14 @@ export default function NavBar() {
     return (
         <div className="App">
             <h1>About US Page</h1>
+            <h1>About US Page</h1>
+            <h1>About US Page</h1>
+            <h1>About US Page</h1>
+            <h1>About US Page</h1>
+            <h1>About US Page</h1>
+            <h1>About US Page</h1>
+            <h1>About US Page</h1>
+            <h1>About US Page</h1>
         </div >
     )
 }
