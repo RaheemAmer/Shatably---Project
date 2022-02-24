@@ -30,8 +30,8 @@ export default function NavBar() {
 
             <div className="header__right">
                 {/* hidden={CheckStorage()} */}
-                <button > <Link to="/Choose">Log-In </Link></button>
-                <button > <Link to="/Choose">Sign-Up </Link></button>
+                <button > <Link to="/Choose">Login/Register </Link></button>
+                {/* <button > <Link to="/Choose">Sign-Up </Link></button> */}
             </div>
         </div >
     )
