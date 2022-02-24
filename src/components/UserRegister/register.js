@@ -148,7 +148,8 @@ const SignUp = () => {
                     MySwal.fire(`Signed-Up Successfully , Welcome ${response.data.data.user.name} , At Shatably.com`);
                     localStorage.setItem("user_token", response.data.token);
                 }).catch((err) => {
-                    console.log(err)
+                    console.log(err);
+                    MySwal.fire(`Invalid Register , Please Enter Your Personal Data in Right Way , These Data are Already Exist`);
                 });
         }
     };

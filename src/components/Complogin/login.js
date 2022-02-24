@@ -108,6 +108,7 @@ const Login = () => {
                     localStorage.setItem("company_token", response.data.token);
                 }).catch((err) => {
                     console.log(err);
+                    MySwal.fire(`Invalid Login , Please Enter Your Email and Password Right`);
                 });
         }
     };
