@@ -165,10 +165,10 @@ const Login = () => {
                                 {formValuesErrors.passErr}
                             </div>
                         )}
-                        <FormControlLabel
+                        {/* <FormControlLabel
                             control={<Checkbox name="checkedB" color="primary" />}
                             label="Remember me"
-                        />
+                        /> */}
                         <Button
                             type="submit"
                             color="primary"
