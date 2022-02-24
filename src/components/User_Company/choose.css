@@ -1,0 +1,13 @@
+.btn-xxl {
+  font-size: 5rem;
+  height: 300px;
+  width: 400px;
+  color: black;
+}
+.btn-xxl:hover {
+  color: white;
+}
+.btn-xxl a {
+  text-decoration: none;
+  color: black;
+}

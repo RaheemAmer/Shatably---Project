@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { validEmail, validPassword } from "./regex.js";
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
@@ -13,7 +13,6 @@ import {
     TextField,
     Button,
     Typography,
-    Link,
 } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -100,13 +99,13 @@ const Login = () => {
         e.preventDefault();
         if (!formValuesErrors.emailErr && !formValuesErrors.passErr) {
             axios
-                .post('http://localhost:3000/api/v1/users/login', formValues)
+                .post('http://localhost:3000/api/v1/contractors/login', formValues)
                 .then((response) => {
                     console.log(response.data);
                     navigate('/');
                     // console.log(response.data.data.user.name);
-                    MySwal.fire(`Logged-IN Successfully,Welcome ${response.data.data.user.name}`);
-                    localStorage.setItem("token", response.data.token);
+                    MySwal.fire(`Logged-IN Successfully,{Welcome ${response.data.data.contactor.name}} ,At Shatably.com`);
+                    localStorage.setItem("company_token", response.data.token);
                 }).catch((err) => {
                     console.log(err);
                 });
@@ -186,13 +185,13 @@ const Login = () => {
                     </form>
                     <Typography>
                         {" "}
-                        <Link href="#"> Forgot password ?</Link>
+                        <Link to={'#'}> Forgot password ?</Link>
                     </Typography>
                     <br />
                     <Typography>
                         {" "}
                         Do you have an account ? <br />
-                        <Link href="/signup">Sign Up</Link>
+                        <Link to={'/company_signup'}>Sign Up</Link>
                     </Typography>
                 </Paper>
             </Grid>

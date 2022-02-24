@@ -43,8 +43,10 @@
 }
 
 .videoBanner__info--first {
-  background: #9b875f;
+  background: #3ea70e;
   color: #f7f7f7;
+  border-radius: 5px;
+
   border: solid 1px black;
   margin: 10px;
 }
@@ -58,6 +60,8 @@
   background: linear-gradient(180deg, transparent 0, hsla(0, 0%, 100%, 0.2));
   background-color: transparent;
   border-color: #f7f7f7;
+  border-radius: 5px;
+
   border: 1px solid #fff;
 }
 

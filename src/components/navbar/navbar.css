@@ -51,8 +51,9 @@
 }
 
 .header__right > button {
-  background-color: #9b875f;
+  background-color: #3ea70e;
   border: solid 1px black;
+  border-radius: 5px;
   color: white;
   padding: 8px 18px;
   text-align: center;

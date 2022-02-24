@@ -28,7 +28,6 @@ const MySwal = withReactContent(Swal);
 
 const SignUp = () => {
     const navigate = useNavigate();
-    console.log(navigate);
     const [formValues, setFormValues] = useState({
         email: "",
         password: "",
@@ -143,11 +142,12 @@ const SignUp = () => {
             // console.log(formValues);
             // console.log("Registered Successfully ");
             axios
-                .post('http://localhost:3000/api/v1/users/signup', formValues)
+                .post('http://localhost:3000/api/v1/contractors/signup', formValues)
                 .then((response) => {
                     console.log(response.data);
-                    navigate('/login');
-                    MySwal.fire(`Signed-Up Successfully , Welcome At Shatably.com`);
+                    navigate('/');
+                    MySwal.fire(`Signed-Up Successfully , {Welcome ${response.data.data.contactor.name}} ,At Shatably.com`);
+                    localStorage.setItem("company_token", response.data.token);
                 }).catch((err) => {
                     console.log(err)
                 });
@@ -255,7 +255,6 @@ const SignUp = () => {
                             type="submit"
                             variant="contained"
                             color="primary"
-                        // onClick={SignUP()}
                         >
                             Sign up
                         </Button>
