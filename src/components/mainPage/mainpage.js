@@ -10,9 +10,9 @@ export default function MainPage() {
         <>
             <SlideShow />
             <Features />
-            <hr />
+         
             <Content />
-            <hr />
+
             <header className="App-header">
                 <h1>Hear From Our Clients </h1>
                 <Testimonials />
