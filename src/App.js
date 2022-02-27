@@ -20,8 +20,8 @@ import Blog from './components/blog/Blog'
 import BlogDetail from './components/blog/BlogDetail'
 import BlogItem from './components/blog/BlogItem'
 import Sidebar from './components/blog/Sidebar'
-
-
+import Reset from './components/userReset/reset'
+import CompanyReset from './components/CompReset/reset.js'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -34,8 +34,10 @@ function App() {
         <Route path={"/"} exact element={<MainPage />}></Route>
         <Route path={"/user_login"} exact element={<Userlogin />}></Route>
         <Route path={"/user_signup"} exact element={<UserSignUp />}></Route>
+        <Route path={"/user_reset"} exact element={<Reset />}></Route>
         <Route path={"/company_login"} exact element={<Companylogin />}></Route>
         <Route path={"/company_signup"} exact element={<CompanySignUp />}></Route>
+        <Route path={"/company_reset"} exact element={<CompanyReset />}></Route>
         <Route path={"/About"} exact element={<About />}></Route>
         <Route path={"/Choose"} exact element={<Choose />}></Route>
         <Route path={"/Subscribe"} exact element={<Subscribe />}></Route>

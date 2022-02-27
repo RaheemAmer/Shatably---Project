@@ -112,6 +112,20 @@ const Login = () => {
         }
     };
 
+    const foregetHandle = (e) => {
+        e.preventDefault();
+        if (!formValuesErrors.emailErr) {
+            axios
+                .post('http://localhost:3000/api/v1/users/forgotPassword', formValues)
+                .then((response) => {
+                    console.log(response);
+                    navigate('/user_reset');
+                }).catch((err) => {
+                    console.log(err);
+                });
+        }
+    };
+
     const paperStyle = {
         padding: 20,
         height: "70vh",
@@ -185,7 +199,7 @@ const Login = () => {
                     </form>
                     <Typography>
                         {" "}
-                        <Link to={'#'}> Forgot password ?</Link>
+                        <Link onClick={(e) => foregetHandle(e)} to=''> Forgot password ?</Link>
                     </Typography>
                     <br />
                     <Typography>

@@ -112,7 +112,19 @@ const Login = () => {
                 });
         }
     };
-
+    const foregetHandle = (e) => {
+        e.preventDefault();
+        if (!formValuesErrors.emailErr) {
+            axios
+                .post('http://localhost:3000/api/v1/contractors/forgotPassword', formValues)
+                .then((response) => {
+                    console.log(response);
+                    navigate('/company_reset');
+                }).catch((err) => {
+                    console.log(err);
+                });
+        }
+    };
     const paperStyle = {
         padding: 20,
         height: "70vh",
@@ -186,7 +198,7 @@ const Login = () => {
                     </form>
                     <Typography>
                         {" "}
-                        <Link to={'#'}> Forgot password ?</Link>
+                        <Link onClick={(e) => foregetHandle(e)} to={'/company_login'}> Forgot password ?</Link>
                     </Typography>
                     <br />
                     <Typography>
