@@ -1,0 +1,43 @@
+.Choose {
+  text-align: center;
+}
+
+.Choose .btn-1 {
+  background-color: rgb(39, 39, 146);
+  color: white;
+  font-size: 30px;
+  font-size: 4rem;
+  height: 300px;
+  width: 400px;
+  border: 2px white solid;
+  
+}
+.Choose .btn-1:hover {
+  background-color: rgb(86, 86, 243);
+  color: rgb(0, 0, 0);
+}
+
+.Choose .btn-2 {
+  background-color: rgb(21, 73, 62);
+  color: white;
+  font-size: 30px;
+  font-size: 4rem;
+  height: 300px;
+  width: 400px;
+  border: 2px white solid;
+
+}
+
+.Choose .btn-2:hover {
+  background-color: rgb(36, 170, 141);
+  color: rgb(0, 0, 0);
+}
+
+.btn-xxl a {
+  text-decoration: none;
+  color: black;
+}
+
+img {
+  border-radius: 50px;
+}

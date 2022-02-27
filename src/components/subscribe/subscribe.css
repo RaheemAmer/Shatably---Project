@@ -1,0 +1,56 @@
+.subscribe-area {
+  background-color: rgb(0, 0, 0);
+  padding: 5px 10px;
+  box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.btn-subscribe {
+  background: #009688;
+  border-radius: 0.2rem;
+  border: 0;
+  color: white;
+  padding: 12px 25px;
+}
+
+.sbs-area-inp {
+  padding: 10px;
+  border: 1px solid rgb(163, 38, 38);
+  outline: none;
+  border-radius: 5px;
+}
+
+.section-subscribe {
+  background-color: #6e6c6c;
+  box-shadow: 0px 3px 10px rgba(40, 129, 207, 0.7);
+  background-image: linear-gradient(to top, #474242, #030703);
+}
+
+.section-subscribe .title {
+  color: white;
+}
+
+.sbs-description {
+  color: #e6e6e6;
+}
+
+@media (max-width: 500px) {
+  .search-area {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .find-search {
+    top: 350px !important;
+  }
+}
+
+@media (max-width: 990px) {
+  .sbs-area-inp {
+    display: block;
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,120 @@
+nav {
+    height: 100%;
+    background-color: #2f2f4d;
+    box-shadow: 0px 1px 10px rgb(128, 0, 128, 0.7);
+    background-image: linear-gradient(to top, #2f2f4d, #626970);
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 15px 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    height: 100%;
+    display: flex;
+    max-width: 150px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.brand h1 {
+    font-size: 37px;
+}
+
+.list {
+    top: 0;
+    left: 0;
+    z-index: 3;
+    left: -100vw;
+    width: 100%;
+    height: 86vh;
+    padding-top: 140px;
+    text-align: center;
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    background-color: #2f2f4d;
+}
+
+.list li {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.list li a {
+    display: block;
+    font-size: 25px;
+    padding: 10px 0;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.list li .active {
+    color: #e8d18e;
+}
+
+.list li a:hover {
+    color: #000000;
+    background-color: #dddddd;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu img {
+    right: 0;
+    opacity: 0;
+    z-index: 4;
+    width: 40px;
+    padding: 8px;
+    display: flex;
+    position: relative;
+    border-radius: 999px;
+    background-color: #dddddd;
+    transition: all 0.5s ease-in-out;
+}
+
+@media (min-width: 800px) {
+    .brand {
+        max-width: 200px;
+    }
+    .menu {
+        display: none;
+    }
+    .list {
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        left: initial;
+        text-align: left;
+        position: relative;
+        justify-content: flex-end;
+        background-color: transparent;
+    }
+    .list li {
+        display: inline-block;
+        margin-bottom: 0;
+    }
+    .list li:not(:last-child) {
+        margin-right: 10px;
+    }
+    .list li a {
+        padding: 5px;
+    }
+    .list li a:hover {
+        padding: 5px;
+        color: #e8d18e;
+        background: transparent;
+    }
+}

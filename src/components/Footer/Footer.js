@@ -1,64 +1,61 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from "react"
 import './Footer.css';
-// import LanguageIcon from '@material-ui/icons/Language';
-import { IoLogoFacebook, IoLogoWhatsapp, IoLogoInstagram, IoLogoTwitter } from "react-icons/io";
-import image from '../../images/logo-x.jpg';
 
-// import HelpIcon from '@material-ui/icons/Help';
-// import FacebookIcon from '@material-ui/icons/Facebook';
-// import TwitterIcon from '@material-ui/icons/Twitter';
-// import YouTubeIcon from '@material-ui/icons/YouTube';
-// import InstagramIcon from '@material-ui/icons/Instagram';
-
-function Footer() {
+const Footer = () => {
     return (
-        <div className="footer">
-            <div className="footer__top">
-                <div className="footer__top--left">
-                    <img src={image} alt="logo" />
+        <section className="footer">
 
-                </div>
-                <div className="footer__top--right">
-                    <div className="footer__top--right-one">
-                        <h4>Companies</h4>
-                        <p>Contests</p>
-                        <p>Categories</p>
-                        <p>Designs</p>
-                        <p>Contests</p>
-                        <p>Companies</p>
-
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-3 col-md-6">
+                        <i className="fas fa-home"></i>
+                        <span className="footer-other-text d-block mt-3 mb-3">
+                        ArtDeco is a promising startup that aims to solve one of the main problems we face when we try to decorate our home, apartment, or even our company. 
+                        </span>
+                        <div className="footer-social">
+                            <div className="footer-social-item"> <i className="fab fa-facebook"></i></div>
+                            <div className="footer-social-item"><i className="fab fa-twitter"></i></div>
+                            <div className="footer-social-item"> <i className="fab fa-instagram"></i></div>
+                        </div>
                     </div>
-                    <div className="footer__top--right-two">
-                        <h4>About</h4>
-                        <p>About Us</p>
-                        <p>How it Works</p>
-                        <p>Security</p>
-                        <p>Investor</p>
-                        <p>Sitemap</p>
-
-
+                    <div className="col-lg-3 col-md-6">
+                        <p className="footer-title">Menu</p>
+                        <ul className="footer-ul">
+                            <li><a href="">Home</a></li>
+                            <li><a href="">Blog</a></li>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
                     </div>
-                    <div className="footer__top--right-three">
-                        <h4>Terms</h4>
-                        <p>Privacy Policy</p>
-                        <p>Terms and Conditions</p>
-                        <p>Copyright Policy</p>
-                        <p>Code of Conduct</p>
-                        <p>Fees and Charges</p>
-
+                    <div className="col-lg-3 col-md-6">
+                        <div>
+                            <p className="footer-title">Categories</p>
+                            <ul className="footer-ul">
+                                <li><a href="">Maintenance</a></li>
+                                <li><a href="">Vacancies</a></li>
+                                <li><a href="">Mentorship</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div className="footer__top--right-four">
-                        <h4>Contact-US</h4>
-                        <p>
-                            <IoLogoFacebook></IoLogoFacebook>
-                            <IoLogoWhatsapp></IoLogoWhatsapp>
-                            <IoLogoInstagram></IoLogoInstagram>
-                            <IoLogoTwitter></IoLogoTwitter>
-                        </p>
+
+                    <div className="col-lg-3 col-md-6">
+                        <p className="footer-title">Contact</p>
+                        <ul className="footer-ul">
+                            <li className="d-flex">
+                                <div className="footer-info-item" ><i className="fas fa-envelope"></i></div> <span>Shatably.inc@gmail.com</span>
+                            </li>
+                            <li className="d-flex">
+                                <div className="footer-info-item"><i className="fas fa-map-marker-alt"></i></div> <span>Egypt</span>
+                            </li>
+                            <li className="d-flex">
+                                <div className="footer-info-item"><i className="fas fa-phone-alt"></i></div> <span>+201234568</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 
