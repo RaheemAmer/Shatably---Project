@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import './jobdetails.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,12 +18,12 @@ export default function Jobdetails() {
                             <li>
                                 <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
                                 <span>
-                                    <span class="text-110">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</span>
+                                    &nbsp; <span class="text-110">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</span>
                                 </span>
                             </li>
                             <li class="mt-25">
                                 <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
-                                <span class="text-110">
+                                &nbsp;<span class="text-110">
                                     Molestie nunc non
                                 </span>
                             </li>
@@ -38,7 +39,7 @@ export default function Jobdetails() {
                                 <li>
                                     <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
                                     <span>
-                                        <span class="text-110">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</span>
+                                        &nbsp;  <span class="text-110">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</span>
                                     </span>
                                 </li>
                             </ul>
@@ -88,7 +89,7 @@ export default function Jobdetails() {
 
                                         <li class="mt-25">
                                             <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
-                                            <span class="text-110">
+                                            &nbsp;<span class="text-110">
                                                 Molestie nunc non
                                             </span>
                                         </li>
@@ -116,23 +117,7 @@ export default function Jobdetails() {
                         </div>
                     </div>
                 </div>
-
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
     )
 }
