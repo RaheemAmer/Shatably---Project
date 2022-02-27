@@ -8,6 +8,12 @@ import CompanySignUp from './components/CompRegister/register';
 import About from './components/about/about';
 import Choose from './components/User_Company/choose'
 import UserSignUp from './components/UserRegister/register';
+import ContactorProfile from './components/contractorProfile/contractorProfile'
+import SettingsPage from './components/SettingsPage/settingsPage'
+import Userprofile from './components/clientprofile/userprofile'
+import ClientFeed from './components/clientfeed/clientFeed'
+import Jobdetails from './components/jobdetails/jobdetails'
+import Proposal from './components/proposal/proposal'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -24,6 +30,12 @@ function App() {
         <Route path={"/company_signup"} exact element={<CompanySignUp />}></Route>
         <Route path={"/About"} exact element={<About />}></Route>
         <Route path={"/Choose"} exact element={<Choose />}></Route>
+        <Route path={"/Userprofile"} exact element={<Userprofile />}></Route>
+        <Route path={"/ClientFeed"} exact element={<ClientFeed />}></Route>
+        <Route path={"/Jobdetails"} exact element={<Jobdetails />}></Route>
+        <Route path={"/Proposal"} exact element={<Proposal />}></Route>
+        <Route path={"/ContactorProfile"} exact element={<ContactorProfile />}></Route>
+        <Route path={"/SettingsPage"} exact element={<SettingsPage />}></Route>
       </Routes>
     </BrowserRouter>
   );
