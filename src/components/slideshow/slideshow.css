@@ -1,0 +1,166 @@
+/* .videoBanner {
+  background: linear-gradient(rgba(59, 59, 59, 0.5), rgba(37, 36, 36, 0.5)),
+    url("https://media.istockphoto.com/photos/luxurious-bedroom-interior-at-nigh-with-messy-bed-leather-armchairs-picture-id1300135335?b=1&k=20&m=1300135335&s=170667a&w=0&h=gTccKAt38zEmqC88LTCOME22BsDLCi9dKyRYWckBQM8=")
+      center center;
+  height: 600px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.videoBanner__info {
+  background-color: transparent;
+  color: white;
+  padding-top: 18vh;
+  padding-left: 50px;
+  padding-right: 80px;
+  padding-bottom: 40px;
+  margin-left: 50px;
+  width: 1000px;
+}
+
+.videoBanner__info > h1 {
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 65px;
+  margin-bottom: 10px;
+}
+
+.videoBanner__info > h4 {
+  font-weight: 400;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.videoBanner__info > button {
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.videoBanner__info--first {
+  background: #3ea70e;
+  color: #f7f7f7;
+  border-radius: 5px;
+
+  border: solid 1px black;
+  margin: 10px;
+}
+
+.videoBanner__info--first:hover {
+  background: #d3eca7;
+  color: black;
+}
+
+.videoBanner__info--second {
+  background: linear-gradient(180deg, transparent 0, hsla(0, 0%, 100%, 0.2));
+  background-color: transparent;
+  border-color: #f7f7f7;
+  border-radius: 5px;
+
+  border: 1px solid #fff;
+}
+
+.videoBanner__info--second:hover {
+  background: hsla(0, 0%, 100%, 0.2);
+  color: #0a0908;
+  border-color: #0e0202;
+} */
+
+.hero {
+    background-color: rgba(0, 0, 0, .5);
+    color: #fff;
+    height: 80vh;
+    width: 100%;
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.hero:before {
+    content: '';
+    background: url('../../assets/hero-img.jpg') no-repeat center center/cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.hero .content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+    padding: 1rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    text-transform: capitalize;
+}
+
+.hero .search-text {
+    margin: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.search {
+    display: flex;
+    background-color: #fff;
+    color: #333;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.search input[type=text] {
+    border: transparent;
+    background-color: transparent;
+    width: 400px;
+    font-size: 1.2rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+.search input[type=text]:focus {
+    outline: none;
+}
+
+.search label {
+    padding: 0 14px 0 8px;
+}
+
+.search .radio {
+    display: flex;
+    align-items: center;
+}
+
+.search button {
+    background-image: linear-gradient(45deg, #5651e5 0%, #709dff 100%);
+    border: 1px solid #5651e5;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 940px) {
+    .hero {
+        height: 70vh;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .search input[type=text] {
+        width: 100%;
+    }
+}

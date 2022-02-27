@@ -1,0 +1,22 @@
+.features {
+    justify-content: center;
+    padding-top: 25px;
+    margin: 35px, 30px, 30px, 30px;
+}
+
+.features__heading>h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    line-height: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.features__single {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-right: 50px;
+    margin-left: 50px;
+}
