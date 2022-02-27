@@ -10,7 +10,7 @@
   height: 300px;
   width: 400px;
   border: 2px white solid;
-  border-radius: 20%;
+  
 }
 .Choose .btn-1:hover {
   background-color: rgb(86, 86, 243);
@@ -25,7 +25,7 @@
   height: 300px;
   width: 400px;
   border: 2px white solid;
-  border-radius: 20%;
+
 }
 
 .Choose .btn-2:hover {

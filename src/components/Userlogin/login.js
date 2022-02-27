@@ -89,7 +89,6 @@ const Login = () => {
                                 : null,
                 });
                 break;
-
             default:
                 break;
         }
