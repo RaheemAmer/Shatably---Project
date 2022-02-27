@@ -112,7 +112,23 @@ const Login = () => {
                 });
         }
     };
+<<<<<<< HEAD
 
+=======
+    const foregetHandle = (e) => {
+        e.preventDefault();
+        if (!formValuesErrors.emailErr) {
+            axios
+                .post('http://localhost:3000/api/v1/contractors/forgotPassword', formValues)
+                .then((response) => {
+                    console.log(response);
+                    navigate('/company_reset');
+                }).catch((err) => {
+                    console.log(err);
+                });
+        }
+    };
+>>>>>>> 1d6df33d4e8c15ab5b8e7a9a542916ebb830e523
     const paperStyle = {
         padding: 20,
         height: "70vh",
@@ -186,7 +202,11 @@ const Login = () => {
                     </form>
                     <Typography>
                         {" "}
+<<<<<<< HEAD
                         <Link to={'#'}> Forgot password ?</Link>
+=======
+                        <Link onClick={(e) => foregetHandle(e)} to={'/company_login'}> Forgot password ?</Link>
+>>>>>>> 1d6df33d4e8c15ab5b8e7a9a542916ebb830e523
                     </Typography>
                     <br />
                     <Typography>

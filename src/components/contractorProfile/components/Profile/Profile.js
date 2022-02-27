@@ -8,11 +8,12 @@ import CustomButton from "../Button/Button";
 
 const Profile = (props) => {
   const { name, title, displayImage, birthday, email, socials } = resume;
+  console.log("props",props.contractorDetails)
 
   return (
     <div className="profile container_shadow">
       <div className="profile_name">
-        <Typography className="name">{name}</Typography>
+        <Typography className="name">{props.contractorDetails.name}</Typography>
         <Typography className="title">{title}</Typography>
       </div>
 
